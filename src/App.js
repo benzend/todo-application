@@ -1,9 +1,10 @@
 import "./App.css";
+import TodosPage from "./components/TodosPage";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <TodosPage />
     </div>
   );
 }
