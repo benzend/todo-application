@@ -54,8 +54,8 @@ export default function TodosPage() {
           checkboxHandler={checkboxHandler}
         />
         <TodoAddButton />
+        <TodoAddForm />
       </Container>
-      <TodoAddForm />
     </div>
   );
 }
