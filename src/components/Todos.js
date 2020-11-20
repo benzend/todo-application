@@ -13,11 +13,11 @@ export default function Todos() {
 
   const checkboxHandler = (e) => {
     todos.forEach((todo, index) => {
-      if (e.target.id == index + 1 && e.target.checked) {
+      if (e.target.id === index + 1 + "" && e.target.checked) {
         let newFinished = [...finished];
         newFinished[index] = true;
         setFinished(newFinished);
-      } else if (e.target.id == index + 1 && !e.target.checked) {
+      } else if (e.target.id === index + 1 + "" && !e.target.checked) {
         let newFinished = [...finished];
         newFinished[index] = false;
         setFinished(newFinished);
