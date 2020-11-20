@@ -9,7 +9,11 @@ export default function Todo(props) {
   return (
     <ListItem style={{ justifyContent: "space-between" }}>
       <div style={props.finished ? finishedStyle : null}>
-        <Checkbox checked={props.checked} />
+        <Checkbox
+          id={props.id}
+          checked={props.finished}
+          onClick={props.checkboxHandler}
+        />
         {props.text}
       </div>
       <IconButton>

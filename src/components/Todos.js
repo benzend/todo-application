@@ -5,22 +5,40 @@ import Todo from "./Todo";
 
 export default function Todos() {
   const [finished, setFinished] = useState([]);
-  const [checked, setChecked] = useState([false, true]);
+
+  const checkboxHandler = (e) => {
+    if (e.target.id == 1) {
+      console.log("this is the first item");
+    }
+    if (e.target.id == 2) {
+      console.log("this is the second");
+    }
+  };
+
+  /* 
+    When checkbox is checked
+    --it activates a dashthrough styling
+    --setFinished at array location to true
+
+
+    When checkbox is unchecked
+    --setFinished at array loc to false
+  */
   return (
     <div>
       <h2>Your Todo List</h2>
       <Card style={{ width: "400px", margin: "auto" }}>
         <List>
           <Todo
-            checked={checked[0]}
+            id="1"
+            checkboxHandler={checkboxHandler}
             finished={finished[0]}
-            setFinished={setFinished}
             text="Go get food"
           />
           <Todo
-            checked={checked[1]}
+            id="2"
+            checkboxHandler={checkboxHandler}
             finished={finished[1]}
-            setFinished={setFinished}
             text="Go get monies"
           />
         </List>
