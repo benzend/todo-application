@@ -12,12 +12,17 @@ export default function Todos() {
   ];
 
   const checkboxHandler = (e) => {
-    if (e.target.id == 1) {
-      console.log("this is the first item");
-    }
-    if (e.target.id == 2) {
-      console.log("this is the second");
-    }
+    todos.forEach((todo, index) => {
+      if (e.target.id == index + 1 && e.target.checked) {
+        let newFinished = [...finished];
+        newFinished[index] = true;
+        setFinished(newFinished);
+      } else if (e.target.id == index + 1 && !e.target.checked) {
+        let newFinished = [...finished];
+        newFinished[index] = false;
+        setFinished(newFinished);
+      }
+    });
   };
 
   /* 
