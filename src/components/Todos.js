@@ -6,18 +6,26 @@ import Todo from "./Todo";
 export default function Todos() {
   const [finished, setFinished] = useState([]);
 
-  const todos = [
-    { id: 1, text: "Go get foods" },
-    { id: 2, text: "Go get monies" },
-  ];
+  const [todos, setTodos] = useState([
+    { id: "todo1", text: "Go get foods" },
+    { id: "todo2", text: "Go get monies" },
+  ]);
+
+  const deletHandler = (id) => {
+    const filterTodos = todos.filter((todo) => todo.id !== id);
+
+    setTimeout(() => {
+      setTodos(filterTodos);
+    }, 50);
+  };
 
   const checkboxHandler = (e) => {
     todos.forEach((todo, index) => {
-      if (e.target.id === index + 1 + "" && e.target.checked) {
+      if (e.target.id === todo.id && e.target.checked) {
         let newFinished = [...finished];
         newFinished[index] = true;
         setFinished(newFinished);
-      } else if (e.target.id === index + 1 + "" && !e.target.checked) {
+      } else if (e.target.id === todo.id && !e.target.checked) {
         let newFinished = [...finished];
         newFinished[index] = false;
         setFinished(newFinished);
@@ -42,8 +50,10 @@ export default function Todos() {
           {todos.map((todo, index) => {
             return (
               <Todo
+                key={todo.id}
                 id={todo.id}
                 checkboxHandler={checkboxHandler}
+                deleteHandler={() => deletHandler(todo.id)}
                 finished={finished[index]}
                 text={todo.text}
               />

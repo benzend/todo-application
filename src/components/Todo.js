@@ -12,7 +12,7 @@ export default function Todo(props) {
         <Checkbox id={props.id} onClick={props.checkboxHandler} />
         {props.text}
       </div>
-      <IconButton>
+      <IconButton onClick={props.deleteHandler}>
         <DeleteIcon />
       </IconButton>
     </ListItem>
