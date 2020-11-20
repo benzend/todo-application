@@ -7,6 +7,8 @@ import Todos from "./Todos";
 export default function TodosPage() {
   const [finished, setFinished] = useState([]);
 
+  const [open, setOpen] = useState();
+
   const [todos, setTodos] = useState([
     { id: "todo1", text: "Go get foods" },
     { id: "todo2", text: "Go get monies" },
@@ -53,8 +55,8 @@ export default function TodosPage() {
           deleteHandler={deleteHandler}
           checkboxHandler={checkboxHandler}
         />
-        <TodoAddButton />
-        <TodoAddForm />
+        <TodoAddButton setOpen={setOpen} />
+        <TodoAddForm setOpen={setOpen} open={open} />
       </Container>
     </div>
   );
