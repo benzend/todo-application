@@ -1,3 +1,4 @@
+import TodoAdd from "./TodoAdd";
 import Todos from "./Todos";
 
 export default function TodosPage() {
@@ -5,6 +6,7 @@ export default function TodosPage() {
     <div>
       <h1>Todo Application</h1>
       <Todos />
+      <TodoAdd />
     </div>
   );
 }
