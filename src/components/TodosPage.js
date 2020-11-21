@@ -18,7 +18,19 @@ export default function TodosPage() {
   // new id for each
 
   const addItemHandler = (e) => {
-    console.log(e.target);
+    e.preventDefault();
+    if (e.target.children[1].firstChild.value) {
+      const newTodo = {
+        id: `todo${todos.length + 1}`,
+        text: e.target.children[1].firstChild.value,
+      };
+      let newTodos = [...todos];
+      newTodos[todos.length] = newTodo;
+      console.log(newTodos);
+      setTodos(newTodos);
+    } else {
+      alert("You cannot add an empty item");
+    }
   };
 
   const deleteHandler = (id) => {

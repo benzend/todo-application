@@ -1,13 +1,8 @@
-import {
-  Backdrop,
-  Button,
-  Card,
-  FormControl,
-  Input,
-  Typography,
-} from "@material-ui/core";
+import { Backdrop, Button, Card, Input, InputLabel } from "@material-ui/core";
+import { useState } from "react";
 
 export default function TodoAddForm(props) {
+  const [text, setText] = useState("");
   return (
     <div>
       <Backdrop
@@ -18,17 +13,16 @@ export default function TodoAddForm(props) {
         open={props.open}
       >
         <Card id="card" style={{ padding: 20 }}>
-          <Typography variant="h5">Add A Todo Item</Typography>
-          <FormControl>
-            <Input />
-            <Button
-              onClick={props.addItemHandler}
-              variant="outlined"
-              style={{ marginTop: 15 }}
-            >
-              Add
-            </Button>
-          </FormControl>
+          <form onSubmit={props.addItemHandler}>
+            <InputLabel htmlFor="myInput">Add Todo Item</InputLabel>
+            <Input
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              id="myInput"
+            />
+            <p>{text}</p>
+            <Button type="submit">Add</Button>
+          </form>
         </Card>
       </Backdrop>
     </div>
