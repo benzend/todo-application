@@ -14,9 +14,6 @@ export default function TodosPage() {
     { id: "todo2", text: "Go get monies" },
   ]);
 
-  // Figure out a way to add item with while setting a
-  // new id for each
-
   const addItemHandler = (e) => {
     e.preventDefault();
     if (e.target.children[1].firstChild.value) {
