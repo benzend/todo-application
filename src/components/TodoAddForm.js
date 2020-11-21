@@ -12,16 +12,20 @@ export default function TodoAddForm(props) {
     <div>
       <Backdrop
         onClick={(e) =>
-          e.target.className == "MuiBackdrop-root" ? props.setOpen(false) : null
+          e.target.className == "MuiBackdrop-root" ? props.setOpen(false) : ""
         }
         style={{ zIndex: 5 }}
         open={props.open}
       >
-        <Card id="card" style={{ padding: 20, zIndex: 6 }}>
+        <Card id="card" style={{ padding: 20 }}>
           <Typography variant="h5">Add A Todo Item</Typography>
           <FormControl>
             <Input />
-            <Button variant="outlined" style={{ marginTop: 15 }}>
+            <Button
+              onClick={props.addItemHandler}
+              variant="outlined"
+              style={{ marginTop: 15 }}
+            >
               Add
             </Button>
           </FormControl>

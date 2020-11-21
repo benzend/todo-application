@@ -7,12 +7,19 @@ import Todos from "./Todos";
 export default function TodosPage() {
   const [finished, setFinished] = useState([]);
 
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
 
   const [todos, setTodos] = useState([
     { id: "todo1", text: "Go get foods" },
     { id: "todo2", text: "Go get monies" },
   ]);
+
+  // Figure out a way to add item with while setting a
+  // new id for each
+
+  const addItemHandler = (e) => {
+    console.log(e.target);
+  };
 
   const deleteHandler = (id) => {
     const filterTodos = todos.filter((todo) => todo.id !== id);
@@ -56,7 +63,11 @@ export default function TodosPage() {
           checkboxHandler={checkboxHandler}
         />
         <TodoAddButton setOpen={setOpen} />
-        <TodoAddForm setOpen={setOpen} open={open} />
+        <TodoAddForm
+          addItemHandler={addItemHandler}
+          setOpen={setOpen}
+          open={open}
+        />
       </Container>
     </div>
   );
