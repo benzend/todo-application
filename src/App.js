@@ -1,15 +1,20 @@
-import { Backdrop } from "@material-ui/core";
-import "./App.css";
-import TodosPage from "./components/TodosPage";
+import { makeStyles } from '@material-ui/core';
 
-function App() {
+import { TodosPage } from './pages';
+
+const useStyles = makeStyles(() => ({
+  appHolder: {
+    textAlign: 'center',
+    fontFamily: '"Roboto", sans-serif',
+  },
+}));
+
+export const App = () => {
+  const { appHolder } = useStyles();
+
   return (
-    <div>
-      <div className="App">
-        <TodosPage />
-      </div>
+    <div className={appHolder}>
+      <TodosPage />
     </div>
   );
-}
-
-export default App;
+};

@@ -1,17 +1,17 @@
-import { Container } from "@material-ui/core";
-import { useState } from "react";
-import TodoAddButton from "./TodoAddButton";
-import TodoAddForm from "./TodoAddForm";
-import Todos from "./Todos";
+import { Container } from '@material-ui/core';
+import { useState } from 'react';
 
-export default function TodosPage() {
+import { TodoAddButton, TodoAddForm, Todos } from '../../components';
+
+// Get rid off all direct DOM manipulation and fully use React
+export const TodosPage = () => {
   const [finished, setFinished] = useState([]);
 
   const [open, setOpen] = useState(false);
 
   const [todos, setTodos] = useState([
-    { id: "todo1", text: "Go get foods" },
-    { id: "todo2", text: "Go get monies" },
+    { id: 'todo1', text: 'Go get foods' },
+    { id: 'todo2', text: 'Go get monies' },
   ]);
 
   const addItemHandler = (e) => {
@@ -26,7 +26,7 @@ export default function TodosPage() {
       console.log(newTodos);
       setTodos(newTodos);
     } else {
-      alert("You cannot add an empty item");
+      alert('You cannot add an empty item');
     }
   };
 
@@ -80,4 +80,4 @@ export default function TodosPage() {
       </Container>
     </div>
   );
-}
+};

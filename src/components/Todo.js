@@ -1,20 +1,39 @@
-import { ListItem, Checkbox, IconButton } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
+import { ListItem, Checkbox, IconButton, makeStyles } from '@material-ui/core';
+import { Delete } from '@material-ui/icons';
 
-export default function Todo(props) {
-  const finishedStyle = {
-    textDecoration: "line-through",
+// 1. Use Arrow functions and named imports
+// 2. Don't nest constant values inside of the components, as they will re-render and we want to avoid that
+// 3. Theme file is global for all styles: https://material-ui.com/customization/default-theme/#default-theme
+
+const useStyles = makeStyles((theme) => ({
+  listItemHolder: {
+    justifyContent: 'space-between',
+  },
+  finishedTodoHolder: {
+    textDecoration: 'line-through',
     opacity: 0.5,
-  };
+  },
+}));
+
+export const Todo = ({
+  finished,
+  id,
+  checkboxHandler,
+  text,
+  deleteHandler,
+}) => {
+  const { listItemHolder, finishedTodoHolder } = useStyles();
+  const finishedClassName = finished ? finishedTodoHolder : '';
+
   return (
-    <ListItem style={{ justifyContent: "space-between" }}>
-      <div style={props.finished ? finishedStyle : null}>
-        <Checkbox id={props.id} onClick={props.checkboxHandler} />
-        {props.text}
+    <ListItem className={listItemHolder}>
+      <div className={finishedClassName}>
+        <Checkbox id={id} onClick={checkboxHandler} />
+        {text}
       </div>
-      <IconButton onClick={props.deleteHandler}>
-        <DeleteIcon />
+      <IconButton onClick={deleteHandler}>
+        <Delete />
       </IconButton>
     </ListItem>
   );
-}
+};

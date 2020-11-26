@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { List, Card } from '@material-ui/core';
 
-import { List, Card } from "@material-ui/core";
+import { Todo } from '.';
 
-import Todo from "./Todo";
-
-export default function Todos(props) {
+export const Todos = (props) => {
   return (
     <div>
       <h2>Your Todo List</h2>
-      <Card style={{ margin: "auto" }}>
+      <Card style={{ margin: 'auto' }}>
         <List>
           {props.todos.map((todo, index) => {
             return (
@@ -26,4 +24,4 @@ export default function Todos(props) {
       </Card>
     </div>
   );
-}
+};

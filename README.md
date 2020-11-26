@@ -1,8 +1,23 @@
-# A Simple React Todo List
+# About
 
-This todo list was created entirely by me, using only the knowledge that I have (other than the fact I had to look up how to use filter() x) ) but the main components that make up this project are as follows:
+This todo list was created entirely by me, using only the knowledge that I have (other than the fact I had to look up how to use filter() x) ).
+  
+# Technology Stack
 
 - Material UI
-- React Hooks
-  
-It took me a day and like 15 minutes the next morning to make this. I was about to look up some tutorials on YouTube BUT I ended up thinking of something in the middle of the night and with a fresh head, I was able to solve it.
+- React (with hooks)
+
+
+# Development
+
+- To run locally, execute `yarn start`, application will open under `localhost:3001`
+
+# Build & Deploy
+
+- To build the application, execute `yarn build`
+- Netlify deployed link: [TODO]
+
+# Testing
+
+- [TODO] unit tests
+- [TODO] e2e tests
