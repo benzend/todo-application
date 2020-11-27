@@ -1,6 +1,6 @@
 # About
 
-This todo list was created entirely by me, using only the knowledge that I have (other than the fact I had to look up how to use filter() x) ).
+This todo list was created entirely by me, using only the knowledge that I have (other than the fact I had to look up how to use filter()).
   
 # Technology Stack
 
