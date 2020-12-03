@@ -7,6 +7,8 @@ import { TodoAddButton, TodoAddForm, Todos } from '../../components';
 export const TodosPage = () => {
   const [open, setOpen] = useState(false);
 
+  const [todoTitle, setTodoTitle] = useState('');
+
   const [todos, setTodos] = useState([
     { id: 'todo1', text: 'Go get foods', checked: false },
     { id: 'todo2', text: 'Go get monies', checked: false },
@@ -14,15 +16,16 @@ export const TodosPage = () => {
 
   const addItemHandler = (e) => {
     e.preventDefault();
-    if (e.target.children[1].firstChild.value) {
+    if (todoTitle.length > 0) {
       const newTodo = {
         id: `todo${todos.length + 1}`,
-        text: e.target.children[1].firstChild.value,
+        text: todoTitle,
       };
       let newTodos = [...todos];
       newTodos[todos.length] = newTodo;
-      console.log(newTodos);
       setTodos(newTodos);
+      setTodoTitle('');
+      setOpen(false);
     } else {
       alert('You cannot add an empty item');
     }
@@ -71,6 +74,8 @@ export const TodosPage = () => {
           addItemHandler={addItemHandler}
           setOpen={setOpen}
           open={open}
+          setTodoTitle={setTodoTitle}
+          todoTitle={todoTitle}
         />
       </Container>
     </div>

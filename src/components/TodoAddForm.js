@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Backdrop, Button, Card, Input, InputLabel } from '@material-ui/core';
 
 // Controlled component https://reactjs.org/docs/forms.html
@@ -6,8 +5,6 @@ import { Backdrop, Button, Card, Input, InputLabel } from '@material-ui/core';
 // addTodo(todoText);
 // https://material-ui.com/components/text-fields/#textfield
 export const TodoAddForm = (props) => {
-  const [value, setValue] = useState(undefined);
-
   return (
     <div>
       <Backdrop
@@ -20,7 +17,10 @@ export const TodoAddForm = (props) => {
         <Card id="card" style={{ padding: 20 }}>
           <form onSubmit={props.addItemHandler}>
             <InputLabel htmlFor="myInput">Add Todo Item</InputLabel>
-            <Input value={value} />
+            <Input
+              onChange={(e) => props.setTodoTitle(e.target.value)}
+              value={props.todoTitle}
+            />
             <Button type="submit">Add</Button>
           </form>
         </Card>
