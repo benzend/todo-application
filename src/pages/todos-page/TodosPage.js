@@ -48,7 +48,15 @@ export const TodosPage = () => {
       return todo;
     });
 
-    setTodos(newTodos);
+    let organizedTodos = newTodos.filter((todo) => todo.id !== e.target.id);
+
+    newTodos.forEach((todo) => {
+      if (todo.id === e.target.id) {
+        organizedTodos.push(todo);
+      }
+    });
+
+    setTodos(organizedTodos);
   };
 
   /* 
