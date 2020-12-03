@@ -18,7 +18,7 @@ export const TodosPage = () => {
     e.preventDefault();
     if (todoTitle.length > 0) {
       const newTodo = {
-        id: `todo${todos.length + 1}`,
+        id: Math.floor(Math.random() * 1000000000) + '',
         text: todoTitle,
       };
       let newTodos = [...todos];
