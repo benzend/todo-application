@@ -1,7 +1,8 @@
 import { Container } from '@material-ui/core';
 import { useState } from 'react';
 import { TodoAddButton, TodoAddForm, Todos } from '../../components';
-// import uuid from 'uuid'; it isn't working
+// tried to import uuid but error strange error pursues
+// import uuid from 'uuid';
 
 // Get rid off all direct DOM manipulation and fully use React
 export const TodosPage = () => {
