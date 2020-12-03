@@ -8,14 +8,14 @@ export const Todos = (props) => {
       <h2>Your Todo List</h2>
       <Card style={{ margin: 'auto' }}>
         <List>
-          {props.todos.map((todo, index) => {
+          {props.todos.map((todo) => {
             return (
               <Todo
                 key={todo.id}
                 id={todo.id}
                 checkboxHandler={props.checkboxHandler}
                 deleteHandler={() => props.deleteHandler(todo.id)}
-                finished={props.finished[index]}
+                checked={todo.checked}
                 text={todo.text}
               />
             );

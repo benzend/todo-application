@@ -15,15 +15,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Todo = ({
-  finished,
-  id,
-  checkboxHandler,
-  text,
-  deleteHandler,
-}) => {
+export const Todo = ({ id, checkboxHandler, text, deleteHandler, checked }) => {
   const { listItemHolder, finishedTodoHolder } = useStyles();
-  const finishedClassName = finished ? finishedTodoHolder : '';
+  const finishedClassName = checked ? finishedTodoHolder : '';
 
   return (
     <ListItem className={listItemHolder}>

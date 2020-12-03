@@ -5,13 +5,11 @@ import { TodoAddButton, TodoAddForm, Todos } from '../../components';
 
 // Get rid off all direct DOM manipulation and fully use React
 export const TodosPage = () => {
-  const [finished, setFinished] = useState([]);
-
   const [open, setOpen] = useState(false);
 
   const [todos, setTodos] = useState([
-    { id: 'todo1', text: 'Go get foods' },
-    { id: 'todo2', text: 'Go get monies' },
+    { id: 'todo1', text: 'Go get foods', checked: false },
+    { id: 'todo2', text: 'Go get monies', checked: false },
   ]);
 
   const addItemHandler = (e) => {
@@ -39,17 +37,15 @@ export const TodosPage = () => {
   };
 
   const checkboxHandler = (e) => {
-    todos.forEach((todo, index) => {
-      if (e.target.id === todo.id && e.target.checked) {
-        let newFinished = [...finished];
-        newFinished[index] = true;
-        setFinished(newFinished);
-      } else if (e.target.id === todo.id && !e.target.checked) {
-        let newFinished = [...finished];
-        newFinished[index] = false;
-        setFinished(newFinished);
+    let newTodos = todos.map((todo) => {
+      if (todo.id === e.target.id) {
+        todo.checked = !todo.checked;
+        return todo;
       }
+      return todo;
     });
+
+    setTodos(newTodos);
   };
 
   /* 
@@ -67,7 +63,6 @@ export const TodosPage = () => {
         <h1>Todo Application</h1>
         <Todos
           todos={todos}
-          finished={finished}
           deleteHandler={deleteHandler}
           checkboxHandler={checkboxHandler}
         />
