@@ -49,6 +49,8 @@ export const TodosPage = () => {
       return todo;
     });
 
+    // immutability
+
     let organizedTodos = newTodos.filter((todo) => todo.id !== e.target.id);
 
     newTodos.forEach((todo) => {

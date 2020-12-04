@@ -6,7 +6,12 @@ export const Todos = (props) => {
   return (
     <div>
       <h2>Your Todo List</h2>
-      {props.todos.length === 0 ? null : (
+      {props.todos.length === 0 ? (
+        <div>
+          <h3>There isn't anything here</h3>
+          <small>add a goal or something</small>
+        </div>
+      ) : (
         <Card style={{ margin: 'auto' }}>
           <List>
             {props.todos.map((todo) => {
